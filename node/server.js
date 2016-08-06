@@ -9,14 +9,14 @@ app.use(bodyParser.json())
 
 app.use('/model.json', falcorExpress.dataSourceRoute((req, res) => {
   return new Router([{
-    route: 'designers',
+    route: 'data',
     get: () => {
       return new Promise((resolve, reject) => {
         request
           .get('http://localhost:3000/designers', (req, res, body) => {
             resolve({
-              path: ['designers'],
-              value: JSON.stringify(JSON.parse(body).data)
+              path: ['data'],
+              value: JSON.parse(body).data
             })
           })
       })

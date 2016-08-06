@@ -8,10 +8,10 @@
 <body>
   <script>
     var model = new falcor.Model({source: new falcor.HttpDataSource('/model.json') })
-    model.
-    get("designers")
+    model
+    .get('data[0..10]["type", "attributes"]["name", "updated-at"]')
     .then(response => {
-      document.write(JSON.parse(response.json.designers)[0].attributes.name)
+      console.log(response)
     })
   </script>
 </body>
